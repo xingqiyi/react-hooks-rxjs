@@ -3,7 +3,8 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "^3.1.1",
-    "rxjs": "^6.5.3"
+    "rxjs": "^6.5.3",
+    "rxjs-hooks": "^0.5.1"
   },
   "name": "react-lifecycle",
   "version": "1.0.0",

@@ -1,10 +1,26 @@
-import React from 'react'
-export default function () {
 
-    return (
-        <div>
-            ccc
-        </div>
+
+
+import React from "react";
+import ReactDOM from "react-dom";
+import { useEventCallback } from "rxjs-hooks";
+import { map } from "rxjs/operators";
+
+export default function () {
+    const [clickCallback, [description, x, y]] = useEventCallback((event$) =>
+        event$.pipe(
+            map((event) => [event.target.innerHTML, event.clientX, event.clientY]),
+        ),
+        ["nothing", 0, 0],
     )
 
+    return (
+        <div className="App">
+            <h1>click position: {x}, {y}</h1>
+            <h1>"{description}" was clicked.</h1>
+            <button onClick={clickCallback}>click me</button>
+            <button onClick={clickCallback}>click you</button>
+            <button onClick={clickCallback}>click him</button>
+        </div>
+    );
 }
